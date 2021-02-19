@@ -1,0 +1,21 @@
+{
+    "name": "teamones/casbin",
+    "description": "Teamones框架 casbin sdk",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Weijer Cheng",
+            "email": "weiwei163@foxmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "casbin/casbin": "~3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "teamones\\casbin\\": "src/"
+        }
+    }
+}
