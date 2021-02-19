@@ -42,12 +42,12 @@ class Enforcer
             }
 
             // 实例化casbin adapter 适配器
-            if (empty($config['adapter_rule_model']) && !class_exists($config['adapter_rule_model'])) {
+            if (empty($config[$type]['adapter_rule_model']) && !class_exists($config[$type]['adapter_rule_model'])) {
                 throw new InvalidArgumentException("Enforcer adapter is not defined.");
             }
-            $ruleModel = new $config['adapter_rule_model']();
+            $ruleModel = new $config[$type]['adapter_rule_model']();
             $adapter = new DatabaseAdapter($ruleModel);
-            
+
             self::$_instance = new BaseEnforcer($model, $adapter, false);
         }
         return self::$_instance;
