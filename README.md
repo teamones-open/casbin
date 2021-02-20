@@ -4,7 +4,7 @@
 
 # 架构
 
-![image](./Teamones_AUTH.png)
+![image](Casbin.png)
 
 # 引用
 
