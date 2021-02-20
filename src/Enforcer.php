@@ -42,11 +42,24 @@ class Enforcer
             }
 
             // 实例化casbin adapter 适配器
-            if (empty($config[$type]['adapter_rule_model']) && !class_exists($config[$type]['adapter_rule_model'])) {
+            if (empty($config[$type]['adapter']) && empty($config[$type]['adapter']['type']) && empty($config[$type]['adapter']['class']) && !class_exists($config[$type]['adapter']['class'])) {
                 throw new InvalidArgumentException("Enforcer adapter is not defined.");
             }
-            $ruleModel = new $config[$type]['adapter_rule_model']();
-            $adapter = new DatabaseAdapter($ruleModel);
+
+            switch ($config[$type]['adapter']['type']) {
+                case 'model':
+                    // 使用支持 think-orm 的适配器
+                    $ruleModel = new $config[$type]['adapter']['class']();
+                    $adapter = new DatabaseAdapter($ruleModel);
+                    break;
+                case 'adapter':
+                    // 使用自定义适配器
+                    $adapter = new $config[$type]['adapter']['class']();
+                    break;
+                default:
+                    throw new InvalidArgumentException("Only model and adapter are supported.");
+                    break;
+            }
 
             self::$_instance = new BaseEnforcer($model, $adapter, false);
         }
