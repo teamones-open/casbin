@@ -11,7 +11,7 @@ return [
         // 策略模型Model设置
         'model' => [
             'config_type' => 'file',
-            'config_file_path' => config_path() . '/plugin/casbin/webman-permission/rbac-model.conf',
+            'config_file_path' => config_path() . '/rbac-model.conf',
             'config_text' => '',
         ],
         // 适配器
@@ -28,7 +28,7 @@ return [
     'restful' => [
         'model' => [
             'config_type' => 'file',
-            'config_file_path' => config_path() . '/plugin/casbin/webman-permission/restful-model.conf',
+            'config_file_path' => config_path() . '/restful-model.conf',
             'config_text' => '',
         ],
         'adapter' => Casbin\WebmanPermission\Adapter\DatabaseAdapter::class, // ThinkORM 适配器

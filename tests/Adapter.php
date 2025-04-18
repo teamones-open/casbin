@@ -8,7 +8,7 @@ trait Adapter
 {
     public function testAddOtherPolicy()
     {
-        var_dump(config('plugin.casbin.webman-permission.permission'));
+        var_dump(config('permission'));
         $this->assertTrue(Permission::driver('other')->addPolicy('writer', 'articles', 'edit'));
         $this->assertTrue(Permission::driver('other')->addPolicies([
             ['writer', 'articles', 'list'],

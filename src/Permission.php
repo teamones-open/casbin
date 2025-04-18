@@ -127,9 +127,9 @@ class Permission
     public static function getConfig(string $name = null, $default = null)
     {
         if (!is_null($name)) {
-            return config('plugin.casbin.webman-permission.permission.' . $name, $default);
+            return config('permission.' . $name, $default);
         }
-        return config('plugin.casbin.webman-permission.permission.default');
+        return config('permission.default');
     }
 
     /**
