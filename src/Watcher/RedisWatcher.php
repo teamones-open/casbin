@@ -1,6 +1,14 @@
 <?php
+/**
+ * @desc RedisWatcher.php 描述信息
+ * @author Tinywan(ShaoBo Wan)
+ * @date 2022/1/17 10:02
+ */
 
-namespace teamones\casbin\watcher;
+declare(strict_types=1);
+
+namespace Casbin\WebmanPermission\Watcher;
+
 
 use Casbin\Persist\Watcher;
 use Closure;
