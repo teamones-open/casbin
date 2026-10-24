@@ -124,7 +124,7 @@ class Permission
      * @return mixed
      * @author Tinywan(ShaoBo Wan)
      */
-    public static function getConfig(string $name = null, $default = null)
+    public static function getConfig(?string $name = null, $default = null)
     {
         if (!is_null($name)) {
             return config('permission.' . $name, $default);

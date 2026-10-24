@@ -59,7 +59,7 @@ class LaravelRuleModel extends Model
      *
      * @return mixed
      */
-    protected function config(string $key = null, $default = null)
+    protected function config(?string $key = null, $default = null)
     {
         $driver = $this->driver ?? config('permission.default');
         return config('permission.' . $driver . '.' . $key, $default);
